@@ -5,14 +5,16 @@ import br.edu.ifpb.report.controller.TaxReport;
 
 public class ReportService {
 
-    ExpenseReport expenseReport = new ExpenseReport();
-    TaxReport taxReport = new TaxReport();
-
     public void generateReport(String type) {
-        if (type.equals("expense")) {
-            expenseReport.generate();
-        } else {
-            taxReport.generate();
+        switch (type) {
+            case "expense":
+                ExpenseReport expenseReport = new ExpenseReport();
+                expenseReport.generateReport();
+                break;
+            case "taxes":
+                TaxReport taxReport = new TaxReport();
+                taxReport.generateReport();
+                break;
         }
     }
 
