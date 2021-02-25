@@ -1,10 +1,10 @@
 package br.edu.ifpb.report.controller;
 
-import br.edu.ifpb.report.database.DatabaseConnector;
+import br.edu.ifpb.report.database.DatabaseConnection;
 
-public abstract class ReportGenerator {
+public abstract class Report {
 
-    protected DatabaseConnector connector;
+    protected DatabaseConnection connector;
 
     public void generateReport() {
         createDatabaseConnection(connector);
@@ -12,7 +12,7 @@ public abstract class ReportGenerator {
         convertReportOutput();
     }
 
-    public void createDatabaseConnection(DatabaseConnector connector) {
+    public void createDatabaseConnection(DatabaseConnection connector) {
         System.out.println("Creating Database Connection...");
         connector.openConnection();
     }
@@ -21,7 +21,7 @@ public abstract class ReportGenerator {
 
     protected abstract void executeDatabaseQuery();
 
-    public void setConnector(DatabaseConnector connector) {
+    public void setConnector(DatabaseConnection connector) {
         this.connector = connector;
     }
 }

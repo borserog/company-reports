@@ -1,6 +1,6 @@
 package br.edu.ifpb.report.database;
 
-public interface DatabaseConnector {
+public interface DatabaseConnection {
     void openConnection();
     void executeQuery(String query);
 }
